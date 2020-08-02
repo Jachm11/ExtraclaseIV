@@ -6,6 +6,7 @@ const app = express();
 
 const port = 3000;
 
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -34,14 +35,14 @@ app.post('/item/add', (req, res) => {
     name: req.body.name
   });
 
-  newItem.save().then(item => res.redirect('/'));
+  newItem.save().then(item => res.redirect('/node'));
 });
 
 
 // UPDATATE an item
 app.post('/item/update' , (req, res) => {
  
-  Item.update({name : req.body.name},{$set : {name : req.body.newName}}).exec().then(item =>res.redirect('/'));
+  Item.update({name : req.body.name},{$set : {name : req.body.newName}}).exec().then(item =>res.redirect('/node'));
 
 });
 
@@ -49,7 +50,7 @@ app.post('/item/update' , (req, res) => {
 // DELETE an item
 app.post('/item/delete' , (req, res) => {
 
-  Item.remove({name : req.body.name}).exec().then(item => res.redirect('/'));
+  Item.remove({name : req.body.name}).exec().then(item => res.redirect('/node'));
       
 });
     
