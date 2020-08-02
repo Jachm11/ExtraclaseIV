@@ -41,13 +41,7 @@ app.post('/item/add', (req, res) => {
 // UPDATATE an item
 app.post('/item/update' , (req, res) => {
  
-  const name = req.body.name;
-
-  const newName = req.body.newName;
-
-  Item.update({name : name},{$set : {name : newName}});
-
-  res.redirect('/');
+  Item.update({name : req.body.name},{$set : {name : req.body.newName}}).exec().then(item =>res.redirect('/'));
 
 });
 
@@ -55,11 +49,7 @@ app.post('/item/update' , (req, res) => {
 // DELETE an item
 app.post('/item/delete' , (req, res) => {
 
-  const name = req.body.name;
-
-  Item.remove({name : name});
-
-  res.redirect('/');
+  Item.remove({name : req.body.name}).exec().then(item => res.redirect('/'));
       
 });
     

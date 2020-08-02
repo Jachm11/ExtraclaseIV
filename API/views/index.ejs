@@ -15,17 +15,19 @@
     <input type="text" name="name">
     <input type="submit" value="Add">
   </form>
+
+  <form method="post" action="/item/delete">
+    <label for="name">Name</label>
+    <input type="text" name="name">
+    <input type="submit" value="Delete">
+  </form>
+
   <form method="post" action="/item/update">
     <label for="name">Name</label>
     <input type="text" name="name">
     <label for="name">New Name</label>
     <input type="text" name="newName">
     <input type="submit" value="Update">
-  </form>
-  <form method="post" action="/item/delete">
-    <label for="name">Name</label>
-    <input type="text" name="name">
-    <input type="submit" value="Delete">
   </form>
   <h4>Items:</h4>
   <ul>
