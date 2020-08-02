@@ -1,14 +1,19 @@
 version: '3'
 services: 
-    app:
+    node:
         container_name: node-api
-        build: .
+        build: ./API
         ports: 
-            - '80:3000'
+            - '81:3000'
         links: 
             - mongo 
     mongo:
         container_name: mongo
-        image: mongo
+        build: ./DB
         ports: 
             - '27017:27017'
+    website:
+        container_name: apache
+        build: ./WebApp
+        ports:
+            - '8080:80'
